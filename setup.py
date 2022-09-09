@@ -28,11 +28,10 @@ def lid():
     #servo1.angle = 90
     #kit.conitnious_servo[1].throttle = -1
     #time.sleep(4)
-    #servo1.angle = 45
+    servo1.angle = 45
     #time.sleep(0.5)
     #servo1.angle = 0
     #kit.continious_servo[1].throttle = 0
-    time.sleep(4)
     servo1.angle = 0
 
 if __name__ == '__main__':
