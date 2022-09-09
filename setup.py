@@ -22,7 +22,7 @@ def proximity(trg,echo):
 def lid():
     kit = ServoKit(channels=16)
     servo1 = kit.servo[0]
-    servo1.angle = 45
+    servo1.angle = 90
     #kit.continious_servo[1].throttle = 1
     #time.sleep(2)
     #servo1.angle = 90
@@ -34,15 +34,18 @@ def lid():
     #kit.continious_servo[1].throttle = 0
     time.sleep(4)
     servo1.angle = 0
-    
+
 if __name__ == '__main__':
-    #lid()
-    while True:
-        dis = proximity(18,24)
-        print(dis)
-        if dis <= 30:
-            lid()
-        time.sleep(1)
-    GPIO.cleanup()
+    try:
+        print("Setup Running")
+        while True:
+            dis = proximity(18,24)
+            #print(dis)
+            if dis <= 30:
+                lid()
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Setup Stopped")
+        GPIO.cleanup()
 
 
