@@ -37,10 +37,11 @@ class Lid:
         self.servo1.angle = 0
     def open(self):
         self.servo1.angle = 90
-        time.sleep(4)
-        self.servo1.angle = 45
-        time.sleep(0.5)
-        self.servo1.angle = 90
+        #time.sleep(4)
+    def close(self):
+        #self.servo1.angle = 45
+        #time.sleep(0.5)
+        #self.servo1.angle = 0
 
 if __name__ == '__main__':
     try:
@@ -49,7 +50,11 @@ if __name__ == '__main__':
             dis = proximity(18,24)
             #print(dis)
             if dis <= 30:
-                Lid.open()
+                while dis <30:
+                    if dis <=30:
+                        Lid.open()
+                    else:
+                        Lid.close()
             time.sleep(1)
     except KeyboardInterrupt:
         print("Setup Stopped")
